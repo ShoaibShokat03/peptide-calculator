@@ -54,7 +54,7 @@ class PeptideCalculator {
     // --- Style Injection ---
     injectStyle() {
         const css = `
-      #devatstack-peptide-calculator {
+     #devatstack-peptide-calculator {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -66,11 +66,11 @@ class PeptideCalculator {
         max-width: 420px;
         width: auto;
         padding: 20px;
-        background: linear-gradient(145deg, #2b3a90 0%, #0d1e70 100%);
-        border: 1px solid #071149;
+        background: linear-gradient(145deg, #606060 0%, #303030 100%);
+        border: 1px solid #202020;
         border-radius: 12px;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        color: #fbfbfb;
+        color: #f0f0f0;
       }
       .devatstack-main-form { display: flex; flex-direction: column; gap: 20px; }
       .devatstack-text-line { display: flex; gap: 8px; align-items: center; font-size: 0.9rem; }
@@ -81,9 +81,9 @@ class PeptideCalculator {
       .devatstack-input-group small { font-weight: 400; font-size: 0.8rem; opacity: 0.8; }
       .devatstack-input-group select, .devatstack-input-group input {
         padding: 10px;
-        background: #071149;
-        border: 1px solid #3a4a9a;
-        color: white;
+        background: #202020;
+        border: 1px solid #505050;
+        color: #f0f0f0;
         font-size: 1.1rem;
         border-radius: 8px;
         text-align: center;
@@ -94,35 +94,35 @@ class PeptideCalculator {
       .devatstack-input-with-unit input { border-top-right-radius: 0; border-bottom-right-radius: 0; }
       .devatstack-input-with-unit select { border-top-left-radius: 0; border-bottom-left-radius: 0; border-left: none; width: 80px; }
       .devatstack-peptides-container { display: flex; flex-direction: column; gap: 15px; }
-      .devatstack-peptide-item { background-color: rgba(7, 17, 73, 0.3); padding: 15px; border-radius: 8px; border: 1px solid #3a4a9a; }
+      .devatstack-peptide-item { background-color: rgba(48, 48, 48, 0.3); padding: 15px; border-radius: 8px; border: 1px solid #505050; }
       .devatstack-peptide-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-      .devatstack-peptide-header h3 { margin: 0; font-size: 1.1rem; color: #7186f0; }
+      .devatstack-peptide-header h3 { margin: 0; font-size: 1.1rem; color: #a0a0a0; }
       .devatstack-peptide-controls { display: flex; gap: 10px; }
-      .devatstack-btn-icon { background: #071149; border: 1px solid #3a4a9a; border-radius: 6px; padding: 8px; cursor: pointer; color: white; transition: all 0.2s; }
-      .devatstack-btn-icon:hover { background: #3a4a9a; }
-      .devatstack-btn-add { background: #7186f0; }
-      .devatstack-btn-add:hover { background: #5a6ec7; }
-      .devatstack-btn-remove { background: #e74c3c; border-color: #c0392b; }
-      .devatstack-btn-remove:hover { background: #c0392b; }
+      .devatstack-btn-icon { background: #202020; border: 1px solid #505050; border-radius: 6px; padding: 8px; cursor: pointer; color: #f0f0f0; transition: all 0.2s; }
+      .devatstack-btn-icon:hover { background: #505050; }
+      .devatstack-btn-add { background: #808080; }
+      .devatstack-btn-add:hover { background: #606060; }
+      .devatstack-btn-remove { background: #505050; border-color: #404040; }
+      .devatstack-btn-remove:hover { background: #404040; }
       .devatstack-peptide-inputs { display: flex; flex-direction: column; gap: 15px; }
-      .devatstack-results-container { margin-top: 25px; border-top: 1px solid #3a4a9a; padding-top: 20px; }
+      .devatstack-results-container { margin-top: 25px; border-top: 1px solid #505050; padding-top: 20px; }
       .devatstack-main-scale { width: 100%; max-width: 400px; font-family: inherit; }
       .devatstack-formulate-header { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
       .devatstack-formulate-header h4 { font-size: 1.5rem; margin: 0; }
       .devatstack-formulate-header p { font-weight: bold; font-size: 1.5rem; margin: 0; }
-      .devatstack-formulate-scale { border: 1px solid #3a4a9a; width: 100%; max-width: 400px; height: 60px; background-color: #071149; position: relative; border-radius: 5px; }
+      .devatstack-formulate-scale { border: 1px solid #505050; width: 100%; max-width: 400px; height: 60px; background-color: #202020; position: relative; border-radius: 5px; }
       .devatstack-formulate-value-bar-box { width: 100%; height: 100%; position: absolute; z-index: 1; overflow: hidden; border-radius: 5px; }
-      .devatstack-formulate-value-bar { height: 100%; background-color: #7186f0; transition: width 0.3s ease-in-out; }
+      .devatstack-formulate-value-bar { height: 100%; background-color: #808080; transition: width 0.3s ease-in-out; }
       .devatstack-formulate-bars { margin-left: -5px; width: 100%; height: 100%; display: flex; position: absolute; z-index: 2; padding: 0 1px; box-sizing: border-box; }
       .devatstack-unit-box { height: 100%; display: flex; }
       .devatstack-formulate-bar { width: calc(100% / 5); height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; position: relative; }
-      .devatstack-bar-line-full { width: 2px; height: 45%; background-color: white; border-radius: 1px; }
-      .devatstack-bar-line-small { width: 1px; height: 20%; background-color: rgba(255,255,255,0.7); }
-      .devatstack-line-value { font-size: 0.8rem; font-weight: 500; color: white; margin-bottom: 4px; }
+      .devatstack-bar-line-full { width: 2px; height: 45%; background-color: #f0f0f0; border-radius: 1px; }
+      .devatstack-bar-line-small { width: 1px; height: 20%; background-color: rgba(240,240,240,0.7); }
+      .devatstack-line-value { font-size: 0.8rem; font-weight: 500; color: #f0f0f0; margin-bottom: 4px; }
       .devatstack-output-box { margin-top: 20px; }
       .devatstack-output-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
-      .devatstack-output-list li { font-size: 1rem; color: white; background-color: rgba(7, 17, 73, 0.8); padding: 10px; border-radius: 6px; }
-      .devatstack-output-list li::before { content: '•'; color: #7186f0; font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
+      .devatstack-output-list li { font-size: 1rem; color: #f0f0f0; background-color: rgba(48, 48, 48, 0.8); padding: 10px; border-radius: 6px; }
+      .devatstack-output-list li::before { content: '•'; color: #808080; font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
     `;
         const style = document.createElement("style");
         style.textContent = css;
